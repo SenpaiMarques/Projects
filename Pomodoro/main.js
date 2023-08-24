@@ -4,10 +4,10 @@ const timer = {
     pomodoro: 25,
     shortBreak: 5,
     longBreak: 15,
-    longBreakInterval:4
+    longBreakInterval:4,
 };
 
-const modeButtons = document.querySelector( '#js-modebuttons');
+const modeButtons = document.querySelector('#js-modebuttons');
 modeButtons.addEventListener('click', handleMode);
 
 function handleMode(event){
@@ -38,6 +38,7 @@ function switchMode (mode) {
 function updateClock(){
     const {remainingTime} = timer;
     const minutes = `${remainingTime.minutes}`.padStart(2,'0');
+    const seconds = `${remainingTime.seconds}`.padStart(2,'0');
 
     const min = document.getElementById('js-minutes');
     const sec = document.getElementById('js-seconds');
