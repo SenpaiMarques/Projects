@@ -7,7 +7,7 @@ const timer = {
     longBreakInterval:4,
 };
 
-const modeButtons = document.querySelector('#js-modebuttons');
+const modeButtons = document.querySelector('#js-mode-buttons');
 modeButtons.addEventListener('click', handleMode);
 
 function handleMode(event){
