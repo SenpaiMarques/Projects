@@ -1,3 +1,5 @@
+
+
 const timer = {
     pomodoro: 25,
     shortBreak: 5,
