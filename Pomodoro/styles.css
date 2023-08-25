@@ -327,3 +327,19 @@ input[type="text"] {
   transform: translate(0%, -50%);
   user-select: none;
 }
+
+body {
+  background: radial-gradient(
+    1200px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.15),
+    transparent 40%
+  );
+  border-radius: inherit;
+  content:"";
+  height: 100%;
+  left: 0px;
+  position:relative;
+  top:0px;
+  width: 100%;
+  z-index: 2;
+}
