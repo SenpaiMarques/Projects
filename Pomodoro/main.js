@@ -317,3 +317,29 @@ document.addEventListener('DOMContentLoaded', () => {
   window.onmousemove = e => handleOnMove(e);
   
   window.ontouchmove = e => handleOnMove(e.touches[0]);
+
+//-------------- THEMES-----------//
+
+  var pinkmode = document.getElementById("pink-mode");
+
+  pinkmode.onclick = function(){
+    document.body.classList.toggle("pink-mode");
+  }
+
+  var cozymode = document.getElementById("cozy-mode");
+
+  cozymode.onclick = function(){
+    document.body.classList.toggle("cozy-mode");
+  }
+
+  var darkmode = document.getElementById("dark-mode");
+
+  darkmode.onclick = function(){
+    document.body.classList.toggle("dark-mode");
+  }
+
+  var coldmode = document.getElementById("cold-mode");
+
+  coldmode.onclick = function(){
+    document.body.classList.toggle("cold-mode");
+  }

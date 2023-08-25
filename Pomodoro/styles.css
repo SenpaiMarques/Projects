@@ -19,10 +19,66 @@ html {
   padding: 0;
 }
 
+/* ----------------- THEMES ---------------- */
+
 :root {
   --pomodoro: hsl(223, 25%, 40%);
   --shortBreak: hsl(48, 23%, 40%);
   --longBreak: hsl(105, 16%, 40%);
+  --clock: black;
+  --progressbar: #fff;
+  --modebutton:#fff;
+  --mainbuttonbk: #fff;
+  --mainbutton:hsl(175, 26%, 41%);
+  --container:#fff;
+}
+
+.pink-mode {
+  --pomodoro: #FFDDCC;
+  --shortBreak: #FEBBCC;
+  --longBreak: #FCBAAD;
+  --clock: #916DB3;
+  --progressbar: #fff;
+  --modebutton: #E48586;
+  --mainbuttonbk: #fff;
+  --mainbutton:#FEBBCC;
+  --container: #E48586;
+}
+
+.cozy-mode {
+  --pomodoro: #4d5155;
+  --shortBreak:#7B4F3F;
+  --longBreak: #173435;
+  --clock: #ffffff;
+  --progressbar: #fff;
+  --modebutton: #597A83;
+  --mainbuttonbk: #fff;
+  --mainbutton: #597A83;
+  --container: #D9E0D5;
+}
+
+.dark-mode {
+  --pomodoro: #292929;
+  --shortBreak:#2E363A;
+  --longBreak: #444444;
+  --clock: #ffffff;
+  --progressbar: #fff;
+  --modebutton: #BEBEBE;
+  --mainbuttonbk: #fff;
+  --mainbutton: #2E363A;
+  --container: #ffff;
+}
+
+.cold-mode {
+  --pomodoro: #38AFB5;
+  --shortBreak:#66A0A4;
+  --longBreak: #CF9AE4;
+  --clock: #ffffff;
+  --progressbar: #fff;
+  --modebutton: #E9CBCF;
+  --mainbuttonbk: #fff;
+  --mainbutton: #38AFB5;
+  --container: #ffff;
 }
 
 body {
@@ -45,7 +101,7 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background-color: #fff;
+  background-color:var(--progressbar);
 }
 
 .timer {
@@ -64,6 +120,7 @@ progress::-webkit-progress-value {
   margin-bottom: 30px;
   font-size: 15rem;
   line-height: 1;
+  color: var(--clock);
 
   font-family: arial, sans-serif;
    
@@ -75,7 +132,7 @@ progress::-webkit-progress-value {
   cursor: pointer;
   box-shadow: none;
   font-weight: 300;
-  color: #fff;
+  color: var(--modebutton);
   border: 1px solid transparent;
   margin: 0px;
   border-radius: 4px;
@@ -93,10 +150,10 @@ progress::-webkit-progress-value {
   font-size: 22px;
   height: 55px;
   text-transform: uppercase;
-  color: hsl(175, 26%, 41%);
+  color: var(--mainbutton);
   font-weight: bold;
   width: 200px;
-  background-color: white;
+  background-color:var(--mainbuttonbk);
   border-width: initial;
   border-style: none;
   margin: 20px 0px 0px;
@@ -124,6 +181,8 @@ button:focus, button:active {
     font-size: 8rem;
   }
 }
+/* ------------------- TODO LIST------------ */
+
 
 .container {
   width: 100%;
@@ -131,7 +190,7 @@ button:focus, button:active {
   margin: 0 auto;
   padding-left: 10px;
   padding-right: 10px;
-  color: #333;
+  color: var(--container);
   height: 90vh;
   margin-top: 5vh;
   margin-bottom: 5vh;
