@@ -330,9 +330,10 @@ input[type="text"] {
 
 body {
   background: radial-gradient(
-    1200px circle at var(--mouse-x) var(--mouse-y),
-    rgba(255, 255, 255, 0.15),
-    transparent 40%
+    300px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.06
+    ),
+    transparent 30%
   );
   border-radius: inherit;
   content:"";
@@ -342,4 +343,5 @@ body {
   top:0px;
   width: 100%;
   z-index: 2;
+  overflow-x: hidden;
 }
