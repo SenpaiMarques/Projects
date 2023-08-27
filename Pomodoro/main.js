@@ -341,26 +341,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //-------------- THEMES-----------//
 
-  var pinkmode = document.getElementById("pink-mode");
+ // Store references to the theme buttons
+var pinkmode = document.getElementById("pink-mode");
+var cozymode = document.getElementById("cozy-mode");
+var darkmode = document.getElementById("dark-mode");
+var coldmode = document.getElementById("cold-mode");
 
-  pinkmode.onclick = function(){
-    document.body.classList.toggle("pink-mode");
+// Store the currently selected theme
+var selectedTheme = null;
+
+// Function to apply a theme
+function applyTheme(theme) {
+  if (selectedTheme !== theme) {
+    if (selectedTheme) {
+      document.body.classList.remove(selectedTheme);
+    }
+    selectedTheme = theme;
+    document.body.classList.add(selectedTheme);
+  } else {
+    selectedTheme = null;
+    document.body.classList.remove(theme);
   }
+}
 
-  var cozymode = document.getElementById("cozy-mode");
+// Attach click handlers to the theme buttons
+pinkmode.onclick = function() {
+  applyTheme("pink-mode");
+};
 
-  cozymode.onclick = function(){
-    document.body.classList.toggle("cozy-mode");
-  }
+cozymode.onclick = function() {
+  applyTheme("cozy-mode");
+};
 
-  var darkmode = document.getElementById("dark-mode");
+darkmode.onclick = function() {
+  applyTheme("dark-mode");
+};
 
-  darkmode.onclick = function(){
-    document.body.classList.toggle("dark-mode");
-  }
-
-  var coldmode = document.getElementById("cold-mode");
-
-  coldmode.onclick = function(){
-    document.body.classList.toggle("cold-mode");
-  }
+coldmode.onclick = function() {
+  applyTheme("cold-mode");
+};
