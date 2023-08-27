@@ -84,7 +84,7 @@ html {
 body {
   background-color: var(--pomodoro);
   transition: background-color 1s ease;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   user-select: none;
 }
 
@@ -294,6 +294,7 @@ input[type="text"] {
 
 .checklist-icon {
   margin-bottom: 20px;
+  fill: white;
 }
 
 .empty-state__title, .empty-state__description {
