@@ -441,11 +441,12 @@ footer .wave#wave4 {
 
 
 /* ---------------- Media Querie ------------*/
-
-
-/* Media query to show the image-track only on larger screens */
-@media (min-width: 768px) {
-  .image-track {
-    display: block;
-  }
+@media (max-width: 768px) {
+#image-track {
+  display: none;
 }
+
+}
+
+
+
