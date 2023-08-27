@@ -326,7 +326,7 @@ input[type="text"] {
   top:50%;
   transform: translate(0%, -50%);
   user-select: none;
-  overflow: hidden;
+
 }
 
 body {
