@@ -1,3 +1,149 @@
+// Import the functions you need from the SDKs you need
+// import { initializeApp } from "./node_modules/firebase/app";
+// import { getAuth } from "./node_modules/firebase/auth";
+// import { getDatabase } from "./node_modules/firebase/database";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDKjvgW7lxrkUKsCKi9SVhejjVxWARY3OQ",
+  authDomain: "login--pomodoro.firebaseapp.com",
+  databaseURL: "https://login--pomodoro-default-rtdb.firebaseio.com",
+  projectId: "login--pomodoro",
+  storageBucket: "login--pomodoro.appspot.com",
+  messagingSenderId: "268577493979",
+  appId: "1:268577493979:web:f01f0a2d79110ab9a10dfe"
+};
+
+// // Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// const auth = getAuth(app);
+// const database = getDatabase(app);
+
+// console.log(app)
+
+const app = firebase.initializeApp(firebaseConfig);
+   const database = app.database();
+   const auth = app.auth();
+
+
+// //Set up our register function
+function signup () {
+
+  //Get all our input fields
+  email = document.getElementById('email').value
+  password = document.getElementById('password').value
+
+  //Validate input fields
+  if(validate_email(email)== false || validate_password(password) == false) {
+    alert('Email or Password is Outta Line!!')
+    return
+  }
+    //Don´t continue running the code
+
+    //Move on with Auth
+    auth.createUserWithEmailAndPassword(email,password)
+    .then(function() {
+
+      var user = auth.currentUser
+
+     // Add this user to Firebase Database
+     var database_ref = database.ref()
+
+     //Create User data
+     var user_data = {
+      email : email,
+      last_login : Date.now()
+     }
+
+     database_ref.child('users/' + user.uid).set(user_data)
+
+    alert('User Created!!')
+
+    })
+    .catch(function(error) {
+      var error_code = error.code
+      var error_message = error.message
+
+      alert(error_message)
+    })
+
+}
+
+//Set up our login function
+function signin () {
+  email = document.getElementById('email').value
+  password = document.getElementById('password').value
+
+  // Also validate
+  if(validate_email(email)== false || validate_password(password) == false) {
+    alert('Email or Password is Outta Line!!')
+    return
+  }
+
+  auth.signInWithEmailAndPassword(email,password)
+  .then(function() {
+    var user = auth.currentUser
+
+     // Add this user to Firebase Database
+     var database_ref = database.ref()
+
+     //Create User data
+     var user_data = {
+      last_login : Date.now()
+     }
+
+     database_ref.child('users/' + user.uid).update(user_data)
+
+    alert('User Logged In!!')
+
+  })
+
+  .catch(function(error){
+    var error_code = error.code
+    var error_message = error.message
+
+      alert(error_message)
+  })
+
+}
+// //Validate input fields
+
+function validate_email(email) {
+  expression = /^[^@]+@\w+(\.\w+)+\w$/
+  if (expression.test(email) == true) {
+    // Email is true
+    return true
+  } else {
+    // Email is not good
+    return false
+  }
+}
+
+function validate_password(password) {
+  // Firebase only accepts lenghts greater than 6
+  if (password.lenght < 6) {
+    return false
+  } else {
+    return true
+  }
+}
+
+
+
+
+
+//---------------------- Login --------------------------//
+document.querySelector("#show-login").addEventListener('click',function(){
+  document.querySelector(".popup").classList.add("active");
+});
+
+
+document.querySelector(".popup .close-btn").addEventListener('click',function(){
+  document.querySelector(".popup").classList.remove("active");
+});
 
 
 const timer = {
@@ -157,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         }
       }
-    
+
     switchMode('pomodoro');
   });
 
@@ -235,7 +381,7 @@ for(const body of document.querySelectorAll("body")){
   }
 
   const form = document.querySelector('.js-form');
-  
+
   form.addEventListener('submit',event => {
     event.preventDefault();
     const input = document.querySelector('.js-todo-input');
@@ -296,47 +442,47 @@ document.addEventListener('DOMContentLoaded', () => {
   const track = document.getElementById("image-track");
 
   const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
-  
+
   const handleOnUp = () => {
-    track.dataset.mouseDownAt = "0";  
+    track.dataset.mouseDownAt = "0";
     track.dataset.prevPercentage = track.dataset.percentage;
   }
-  
+
   const handleOnMove = e => {
     if(track.dataset.mouseDownAt === "0") return;
-    
+
     const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
           maxDelta = window.innerWidth / 2;
-    
+
     const percentage = (mouseDelta / maxDelta) * -100,
           nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
           nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
-    
+
     track.dataset.percentage = nextPercentage;
-    
+
     track.animate({
       transform: `translate(${nextPercentage}%, -50%)`
     }, { duration: 1200, fill: "forwards" });
-    
+
     for(const image of track.getElementsByClassName("image")) {
       image.animate({
         objectPosition: `${100 + nextPercentage}% center`
       }, { duration: 1200, fill: "forwards" });
     }
   }
-  
+
   /* -- Had to add extra lines for touch events -- */
-  
+
   window.onmousedown = e => handleOnDown(e);
-  
+
   window.ontouchstart = e => handleOnDown(e.touches[0]);
-  
+
   window.onmouseup = e => handleOnUp(e);
-  
+
   window.ontouchend = e => handleOnUp(e.touches[0]);
-  
+
   window.onmousemove = e => handleOnMove(e);
-  
+
   window.ontouchmove = e => handleOnMove(e.touches[0]);
 
 //-------------- THEMES-----------//
@@ -380,3 +526,4 @@ darkmode.onclick = function() {
 coldmode.onclick = function() {
   applyTheme("cold-mode");
 };
+

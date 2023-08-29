@@ -9,7 +9,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
   </head>
-  <header></header>
+  
+  <script  src="https://www.gstatic.com/firebasejs/10.3.0/firebase-app-compat.js"></script>
+  <script  src="https://www.gstatic.com/firebasejs/10.3.0/firebase-auth-compat.js"></script>
+  <script  src="https://www.gstatic.com/firebasejs/10.3.0/firebase-database-compat.js"></script>
+  <script  src="https://www.gstatic.com/firebasejs/10.3.0/firebase-firestore-compat.js"></script>
+
+  <!-- <script type="module">  
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.3.0/firebase-app-compat.js';
+    import { getAuth } from 'https://www.gstatic.com/firebasejs/10.3.0/firebase-auth-compat.js';
+    import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.3.0/firebase-database-compat.js';
+  </script> -->
+  
+  <header>
+    <div class="center">
+      <button id="show-login">Login</button>
+    </div>
+    <div class="popup">
+      <div class="close-btn">&times;</div>
+      <div class="form">
+        <h2>Log in</h2>
+        <div class="form-element">
+          <label for="email">Email</label>
+          <input type="text" id="email" placeholder="Enter email">
+        </div>
+        <div class="form-element">
+          <label for ="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password">
+        </div>
+        <div class="form-element">
+          <input type="checkbox" id="remember-me">
+          <label for ="rememer-me">Remember me</label>
+        </div>
+        <div class="form-element">
+          <button onclick="signin()">Sign In</button>
+          <button onclick="signup()">Sign Up</button>
+        </div>
+        <div class="form-element">
+          <a  href="#">Forgot password?</a>
+        </div>
+      </div>
+    </div>
+
+
+
+  </header>
   <body>
     <main class="app">
       <progress id="js-progress" value="0"></progress>
@@ -96,13 +140,6 @@
   
 </div>
 
-
-
-
-
-
-    
-    <script src="main.js"></script>
   
   </body>
 

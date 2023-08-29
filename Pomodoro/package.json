@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "pomodoro",
   "version": "1.0.0",
   "description": "A pomodoro timer application built with JavaScript",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/Freshman-tech/pomodoro#readme",
   "dependencies": {
-    "browser-sync": "^2.26.12"
+    "browser-sync": "^2.26.12",
+    "firebase": "^10.3.0"
   }
 }
