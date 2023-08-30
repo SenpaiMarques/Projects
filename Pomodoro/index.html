@@ -8,22 +8,26 @@
     <link rel="stylesheet" href="styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
+
   
+<!---------Firebase--------------->
+
   <script  src="https://www.gstatic.com/firebasejs/10.3.0/firebase-app-compat.js"></script>
   <script  src="https://www.gstatic.com/firebasejs/10.3.0/firebase-auth-compat.js"></script>
   <script  src="https://www.gstatic.com/firebasejs/10.3.0/firebase-database-compat.js"></script>
   <script  src="https://www.gstatic.com/firebasejs/10.3.0/firebase-firestore-compat.js"></script>
 
-  <!-- <script type="module">  
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.3.0/firebase-app-compat.js';
-    import { getAuth } from 'https://www.gstatic.com/firebasejs/10.3.0/firebase-auth-compat.js';
-    import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.3.0/firebase-database-compat.js';
-  </script> -->
-  
+
+  <!---------Login--------------->
   <header>
     <div class="center">
-      <button id="show-login">Login</button>
+      <button id="show-settings"><i class="fa-solid fa-gear"></i> Settings</button>
+      <button id="show-login"><i class="fa-solid fa-user"></i> Login</button>
+      
+    <!--------Popup Login ------>
+    
     </div>
     <div class="popup">
       <div class="close-btn">&times;</div>
@@ -39,7 +43,7 @@
         </div>
         <div class="form-element">
           <input type="checkbox" id="remember-me">
-          <label for ="rememer-me">Remember me</label>
+          <label for ="remember-me">Remember me</label>
         </div>
         <div class="form-element">
           <button onclick="signin()">Sign In</button>
@@ -51,9 +55,67 @@
       </div>
     </div>
 
+    <!--------Popup Settings ------>
 
-
+  </div>
+  <div class="popupsettings">
+    <div class="close-btn">&times;</div>
+    <div class="titleSettings">Settings</div>
+    <div class="settings">
+      <div class="SettingsTitles" ><i class="fa-solid fa-clock"></i>Timer</div>
+      <div class="SettingsTimer">
+        <div class="containersSettings" id="containerTimer">
+          <div class= "SettingsNames"> <span>Time(minutes) </span></div>
+          <div class="ChangeTimeCategories">
+            <div class="InputSettings">
+              <label class="labelSettings">Pomodoro</label>
+              <input type="number" min="0" step="1" value="25" class="InputNumbers">
+              </div>
+              <div class="InputSettings">
+                <label class="labelSettings">Short break</label>
+                <input type="number" min="0" step="1" value="5" class="InputNumbers">
+                </div>
+                <div class="InputSettings">
+                  <label class="labelSettings">Long Break</label>
+                  <input type="number" min="0" step="1" value="15" class="InputNumbers">
+                  </div>
+          
+            </div>
+          </div>
+        <div class="containersSettings" id="containerAutoBreaks">
+          <div class="containerSettingsFlex">
+            <div class=" SettingsNames"> <span>Auto Start Breaks </span></div>
+            <div class="ToggleSettings">
+              <div class="InToggleSettings"> </div>
+            </div>
+          </div>
+          </div>
+        <div class="containersSettings" id="containerAutoPomodoros">
+            <div class="containerSettingsFlex">
+              <div class=" SettingsNames"> <span>Auto Start Pomodoros </span></div>
+              <div class="ToggleSettings">
+                <div class="InToggleSettings"> </div>
+              </div>
+            </div>
+          </div>
+        <div class="containersSettings" id="containerLongInterval">
+              <div class="containerSettingsFlex">
+                <div class=" SettingsNames"> <span>Long Break Interval </span></div>
+                <div class="InputSettings">
+                  <input type="number" min="1" step="1" value="4" class="InputNumbers">
+                </div>
+              </div>
+          </div>
+          
+        
+      </div>
+    </div>
+  </div>
   </header>
+
+
+
+  
   <body>
     <main class="app">
       <progress id="js-progress" value="0"></progress>

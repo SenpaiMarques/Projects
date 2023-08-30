@@ -60,6 +60,7 @@ html {
   
 }
 
+
 .popup.active {
   top: 15%;
   opacity:1;
@@ -137,9 +138,140 @@ html {
 
 }
 
+/*-----------------Settings------------------*/
+
+.popupsettings {
+  z-index: 10;
+  position: absolute;
+  top: -150%;
+  left: 50%;
+  opacity:0;
+  transform: translate(-50%, -50%) scale(1.25);
+  width: 380px;
+  padding:20px 30px;
+  background:#fff;
+  box-shadow:2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  transition: top 0ms ease-in-out 200ms,
+              opacity 200ms ease-in-out 0ms,
+              transform 200ms ease-in-out 0ms;
+  
+}
 
 
+.popupsettings.active {
+  top: 15%;
+  opacity:1;
+  transform: translate(-50%, -50%) scale(1);
+  transition: top 0ms ease-in-out 0ms,
+              opacity 200ms ease-in-out 0ms,
+              transform 200ms ease-in-out 0ms;
+}
 
+.popupsettings .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 15px;
+  height: 15px;
+  background-color: #888;
+  color:#eee;
+  text-align:center;
+  line-height: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.titleSettings {
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+}
+
+.SettingsTitles {
+  font-size: 14px;
+  color: rgb(187, 187, 187);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 28px;
+  margin-bottom: 10px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.labelSettings {
+  display: block;
+  font-size: 14px;
+  color: rgb(187, 187, 187);
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.ChangeTimeCategories {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.InputSettings {
+  width: 98px;
+}
+
+.InputNumbers {
+  border-radius: 4px;
+  background-color: rgb(239, 239, 239);
+  font-size: 16px;
+  padding: 10px;
+  box-shadow: none;
+  border: none;
+  color: rgb(85, 85, 85);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ToggleSettings {
+  cursor: pointer;
+  width: 60px;
+  height: 32px;
+  border-radius: 50px;
+  background-color: rgb(204, 204, 204);
+  position: relative;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.InToggleSettings {
+  position: absolute;
+  left: 2px;
+  width:28px;
+  height: 28px;
+  border-radius: 50px;
+  background-color: white;
+  box-shadow:rgba(0, 0, 0, 0.3) 0px 1px 1px;
+}
+
+
+.containersSettings {
+  padding: 12px 0px;
+  min-height: 30px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.containerSettingsFlex {
+
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+}
 /* ----------------- THEMES ---------------- */
 
 :root {

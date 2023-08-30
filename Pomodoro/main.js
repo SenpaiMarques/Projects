@@ -1,10 +1,4 @@
-// Import the functions you need from the SDKs you need
-// import { initializeApp } from "./node_modules/firebase/app";
-// import { getAuth } from "./node_modules/firebase/auth";
-// import { getDatabase } from "./node_modules/firebase/database";
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,12 +11,7 @@ const firebaseConfig = {
   appId: "1:268577493979:web:f01f0a2d79110ab9a10dfe"
 };
 
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const auth = getAuth(app);
-// const database = getDatabase(app);
 
-// console.log(app)
 
 const app = firebase.initializeApp(firebaseConfig);
    const database = app.database();
@@ -144,6 +133,20 @@ document.querySelector("#show-login").addEventListener('click',function(){
 document.querySelector(".popup .close-btn").addEventListener('click',function(){
   document.querySelector(".popup").classList.remove("active");
 });
+
+
+//---------------------- Settings --------------------------//
+
+document.querySelector("#show-settings").addEventListener('click',function(){
+  document.querySelector(".popupsettings").classList.add("active");
+});
+
+
+document.querySelector(".popupsettings .close-btn").addEventListener('click',function(){
+  document.querySelector(".popupsettings").classList.remove("active");
+});
+
+
 
 
 const timer = {
