@@ -12,7 +12,7 @@
   </head>
 
   
-<!---------Firebase--------------->
+<!-------------Firebase--------------->
 
   <script  src="https://www.gstatic.com/firebasejs/10.3.0/firebase-app-compat.js"></script>
   <script  src="https://www.gstatic.com/firebasejs/10.3.0/firebase-auth-compat.js"></script>
@@ -20,13 +20,13 @@
   <script  src="https://www.gstatic.com/firebasejs/10.3.0/firebase-firestore-compat.js"></script>
 
 
-  <!---------Login--------------->
+  <!-------------Login--------------->
   <header>
     <div class="center">
       <button id="show-settings"><i class="fa-solid fa-gear"></i> Settings</button>
       <button id="show-login"><i class="fa-solid fa-user"></i> Login</button>
       
-    <!--------Popup Login ------>
+    <!------------Popup Login ------------>
     
     </div>
     <div class="popup">
@@ -69,15 +69,15 @@
           <div class="ChangeTimeCategories">
             <div class="InputSettings">
               <label class="labelSettings">Pomodoro</label>
-              <input type="number" min="0" step="1" value="25" class="InputNumbers">
+              <input type="number" min="0" step="1" value="25" class="InputNumbers" id="pomodorotime">
               </div>
               <div class="InputSettings">
                 <label class="labelSettings">Short break</label>
-                <input type="number" min="0" step="1" value="5" class="InputNumbers">
+                <input type="number" min="0" step="1" value="5" class="InputNumbers" id="shortbreaktime">
                 </div>
                 <div class="InputSettings">
                   <label class="labelSettings">Long Break</label>
-                  <input type="number" min="0" step="1" value="15" class="InputNumbers">
+                  <input type="number" min="0" step="1" value="15" class="InputNumbers" id="longbreaktime">
                   </div>
           
             </div>
@@ -107,13 +107,14 @@
               </div>
           </div>
           
+        <div class="ApplySettings"> 
+          <button onclick="applysettings()" class="applybutton">Apply</button>
+        </div>
         
       </div>
     </div>
   </div>
   </header>
-
-
 
   
   <body>

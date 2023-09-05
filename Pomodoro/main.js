@@ -147,15 +147,22 @@ document.querySelector(".popupsettings .close-btn").addEventListener('click',fun
 });
 
 
-
+pomodoroTime = parseInt(document.getElementById('pomodorotime').value);
 
 const timer = {
-    pomodoro: 25,
+    pomodoro: pomodoroTime,
     shortBreak: 5,
     longBreak: 15,
     longBreakInterval:4,
     sessions: 0,
 };
+
+function applysettings() {
+  
+  const pomodoroTime = parseInt(document.getElementById('pomodorotime').value);
+  const shortBreakTime = parseInt(document.getElementById('shortbreaktime').value);
+  const longBreakTime = parseInt(document.getElementById('longBreaktime').value);
+}
 
 
 let interval;
