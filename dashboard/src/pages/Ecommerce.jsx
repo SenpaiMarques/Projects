@@ -7,10 +7,11 @@ import { useStateContext } from '../contexts/ContextProvider'
 
 
 const Ecommerce = () => {
+  const { currentColor } = useStateContext();
   return (
     <div className="mt-12">
       <div className='flex flex-wrap lg:flex-nowrap justify-center'>
-        <div className="bg-white dark:text-gr dark:bg-secondary-daray-200k-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repat bg-cover bg-center">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repat bg-cover bg-center">
           <div className="flex justify-between items-center">
             <div>
               <p className="font-bold text-gray-400">Earnings</p>
@@ -20,7 +21,7 @@ const Ecommerce = () => {
           <div className="mt-6">
             <Button
             color="white"
-            bgColor="blue"
+            bgColor={currentColor}
             text="Download"
             borderRadius="10px"
             size="md"
@@ -46,7 +47,7 @@ const Ecommerce = () => {
 
                       </span>
 
-                      <span className={`text-sm text-${item.pcColor} ml-2`}>
+                      < span className={`text-sm text-${item.pcColor} ml-2`}>
                         {item.percentage}
                       </span>
                   </p>
@@ -93,19 +94,30 @@ const Ecommerce = () => {
 
                   <div className="mt-5">
                     <SparkLine
-                      currentColor="blue"
+                      currentColor={currentColor}
                       id="line-sparkline"
                       type="Line"
                       height="80px"
                       width="250px"
                       data={SparklineAreaData}
-                      color="blue"
+                      color={currentColor}
 
                       />
+                      </div>
+                      <div className="mt-10">
+                        <Button
+                          color="white"
+                          bgColor={currentColor}
+                          text="Download Report"
+                          borderRadius="10px"
+                          />
                   </div>
 
                 </div>
-
+                <div>
+                  <Stacked width="320px"
+                  height="360px" />
+                </div>
               </div>
 
             </div>
