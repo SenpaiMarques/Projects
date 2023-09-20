@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useState} from "react";
+import React, {createContext, useContext, useState} from 'react';
 
 const StateContext = createContext();
 
@@ -28,7 +28,7 @@ export const ContextProvider = ({children}) => {
 
         localStorage.setItem('themeMode', e.target.value)
 
-        setThemeSettings(false);
+        // setThemeSettings(false);
 
     }
 
@@ -37,13 +37,12 @@ export const ContextProvider = ({children}) => {
 
         localStorage.setItem('colorMode', color)
 
-        setThemeSettings(false);
+        // setThemeSettings(false);
 
     }
     
     const handleClick = (clicked) => {
-        setIsClicked({...initialState, [clicked]:
-            true});
+        setIsClicked({...initialState, [clicked]: true});
     }
 
     return(
