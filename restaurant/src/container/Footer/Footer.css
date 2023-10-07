@@ -45,14 +45,14 @@
     margin-top: 0.5rem;
 }
 
-.app_footer-links_icons svg {
+.app__footer-links_icons svg {
     color: var(--color-white);
     margin: 0.5rem;
     font-size: 24px;
     cursor: pointer;
 }
 
-.app_footer-links_icons svg:hover {
+.app__footer-links_icons svg:hover {
     color: var(--color-golden)
 
 }
@@ -76,7 +76,7 @@
 @media screen and (min-width: 2000px) {
     .app__footer-headtext {
         font-size: 51px;
-        line-height: 61px;
+        line-height: 61.6px;
     }
 }
 
